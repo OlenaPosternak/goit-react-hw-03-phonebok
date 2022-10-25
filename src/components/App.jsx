@@ -13,6 +13,7 @@ export class App extends Component {
     contacts: [],
     filter: '',
   };
+  
 
   componentDidMount() {
     const savedContacts = JSON.parse(localStorage.getItem(`myContacts`));
