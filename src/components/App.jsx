@@ -14,17 +14,17 @@ export class App extends Component {
     filter: '',
   };
 
+  
+  componentDidMount() {
+    const savedContacts = JSON.parse(localStorage.getItem(`myContacts`))
+    this.setState({contacts: savedContacts});
+  }
 
-//   componentDidMount() {
-//     const savedContacts = JSON.parse(localStorage.getItem(`myContacts`))
-//     this.setState({contacts: savedContacts});
-//   }
-
-//   componentDidUpdate(_, prevState) {
-//     if (this.state.contacts !== prevState.contacts) {
-//       localStorage.setItem(`myContacts`, JSON.stringify(this.state.contacts));
-//     }
-//   }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem(`myContacts`, JSON.stringify(this.state.contacts));
+    }
+  }
 
   onSubmitHendler = data => {
     const contact = {
